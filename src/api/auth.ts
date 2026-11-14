@@ -8,6 +8,8 @@ export interface RegisterInput {
   language?: Language;
   latitude?: number | null;
   longitude?: number | null;
+  /** The person accepted the terms of use and the privacy notice (the API refuses to sign up without it). */
+  acceptedTerms: boolean;
 }
 
 export const authApi = {

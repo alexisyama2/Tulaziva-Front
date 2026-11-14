@@ -17,6 +17,7 @@ import ForgotPasswordPage from '@/pages/ForgotPasswordPage';
 import ResetPasswordPage from '@/pages/ResetPasswordPage';
 import VerifyEmailPage from '@/pages/VerifyEmailPage';
 import ConfirmEmailChangePage from '@/pages/ConfirmEmailChangePage';
+import LegalPage from '@/pages/LegalPage';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,8 @@ const router = createBrowserRouter([
       { path: 'reset-password', element: <ResetPasswordPage /> },
       { path: 'verify-email', element: <VerifyEmailPage /> },
       { path: 'confirm-email-change', element: <ConfirmEmailChangePage /> },
+      { path: 'terms', element: <LegalPage kind="terms" /> },
+      { path: 'privacy', element: <LegalPage kind="privacy" /> },
       {
         element: <ProtectedRoute />,
         children: [

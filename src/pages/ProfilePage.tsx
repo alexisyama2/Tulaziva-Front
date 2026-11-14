@@ -28,6 +28,7 @@ import { useGeolocation } from '@/hooks/useGeolocation';
 import { BlockedUsersSection, DeleteAccountSection, EmailSection } from '@/components/profile/AccountSections';
 import { formatDate } from '@/utils/format';
 import type { Language, User } from '@/types/api';
+import PasswordField from '@/components/common/PasswordField';
 
 const MAX_BYTES = 5 * 1024 * 1024;
 
@@ -209,27 +210,24 @@ function PasswordSection() {
       <Stack gap={2.5}>
         <Typography variant="h6">{t('profile.passwordTitle')}</Typography>
         {change.error && <ErrorList error={change.error} />}
-        <TextField
+        <PasswordField
           label={t('profile.currentPassword')}
-          type="password"
           autoComplete="current-password"
           value={current}
           onChange={(e) => setCurrent(e.target.value)}
           error={touched && !current}
           helperText={touched && !current ? t('auth.passwordRequired') : ''}
         />
-        <TextField
+        <PasswordField
           label={t('reset.newPassword')}
-          type="password"
           autoComplete="new-password"
           value={next}
           onChange={(e) => setNext(e.target.value)}
           error={touched && !next}
           helperText={touched && !next ? t('auth.passwordRequired') : t('auth.passwordHint')}
         />
-        <TextField
+        <PasswordField
           label={t('reset.confirm')}
-          type="password"
           autoComplete="new-password"
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}

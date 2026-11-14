@@ -12,6 +12,7 @@ import ErrorState, { errorMessages } from '@/components/common/ErrorState';
 import UserAvatar from '@/components/common/UserAvatar';
 import { useNotify } from '@/context/NotificationContext';
 import { formatBytes, formatDateTime } from '@/utils/format';
+import PasswordField from '@/components/common/PasswordField';
 
 function Pager({ total, size, page, onChange }: { total: number; size: number; page: number; onChange: (p: number) => void }) {
   const pages = Math.ceil(total / size);
@@ -47,7 +48,7 @@ function NewAdminDialog({ open, onClose }: { open: boolean; onClose: () => void 
           {create.error && <Alert severity="error">{errorMessages(create.error, t('errors.generic')).map((m) => <div key={m}>{m}</div>)}</Alert>}
           <TextField label={t('auth.displayName')} value={form.displayName} onChange={set('displayName')} />
           <TextField label={t('auth.email')} type="email" value={form.email} onChange={set('email')} />
-          <TextField label={t('auth.password')} type="password" value={form.password} onChange={set('password')} helperText={t('auth.passwordHint')} />
+          <PasswordField label={t('auth.password')} value={form.password} onChange={set('password')} helperText={t('auth.passwordHint')} />
         </Stack>
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 2 }}>

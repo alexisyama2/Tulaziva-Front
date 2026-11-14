@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Link as RouterLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { Alert, Box, Button, CircularProgress, Link, Stack, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, CircularProgress, Link, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { authApi } from '@/api';
 import AuthLayout from '@/components/layout/AuthLayout';
 import { errorMessages } from '@/components/common/ErrorState';
 import { useNotify } from '@/context/NotificationContext';
+import PasswordField from '@/components/common/PasswordField';
 
 export default function ResetPasswordPage() {
   const { t } = useTranslation();
@@ -51,9 +52,8 @@ export default function ResetPasswordPage() {
               <Link component={RouterLink} to="/forgot-password" sx={{ display: 'block', mt: 0.5 }}>{t('reset.requestNew')}</Link>
             </Alert>
           )}
-          <TextField
+          <PasswordField
             label={t('reset.newPassword')}
-            type="password"
             autoComplete="new-password"
             autoFocus
             value={password}
@@ -61,9 +61,8 @@ export default function ResetPasswordPage() {
             error={touched && !password}
             helperText={touched && !password ? t('auth.passwordRequired') : t('auth.passwordHint')}
           />
-          <TextField
+          <PasswordField
             label={t('reset.confirm')}
-            type="password"
             autoComplete="new-password"
             value={confirm}
             onChange={(e) => setConfirm(e.target.value)}

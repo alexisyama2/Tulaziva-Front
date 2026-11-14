@@ -6,6 +6,7 @@ import AuthLayout from '@/components/layout/AuthLayout';
 import { errorMessages } from '@/components/common/ErrorState';
 import { useAuth } from '@/context/AuthContext';
 import { useNotify } from '@/context/NotificationContext';
+import PasswordField from '@/components/common/PasswordField';
 
 export default function LoginPage() {
   const { t } = useTranslation();
@@ -46,7 +47,7 @@ export default function LoginPage() {
         <Stack gap={2.5}>
           {errors.length > 0 && <Alert severity="error">{errors.map((m) => <div key={m}>{m}</div>)}</Alert>}
           <TextField label={t('auth.email')} type="email" autoComplete="email" autoFocus value={email} onChange={(e) => setEmail(e.target.value)} error={touched && !email.trim()} helperText={touched && !email.trim() ? t('auth.emailRequired') : ''} />
-          <TextField label={t('auth.password')} type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} error={touched && !password} helperText={touched && !password ? t('auth.passwordRequired') : ''} />
+          <PasswordField label={t('auth.password')} autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} error={touched && !password} helperText={touched && !password ? t('auth.passwordRequired') : ''} />
           <Link component={RouterLink} to="/forgot-password" variant="body2" sx={{ alignSelf: 'flex-end', mt: -1 }}>
             {t('auth.forgotLink')}
           </Link>

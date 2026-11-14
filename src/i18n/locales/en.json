@@ -144,7 +144,11 @@
     "nameRequired": "Enter your name",
     "sessionExpired": "Your session expired. Please log in again.",
     "welcome": "Hi, {{name}}!",
-    "forgotLink": "Forgot your password?"
+    "forgotLink": "Forgot your password?",
+    "acceptTerms": "I accept the <1>Terms of use</1> and the <2>Privacy notice</2>",
+    "acceptTermsHint": "You must accept them to create your account.",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
   },
   "chat": {
     "title": "Messages",
@@ -236,7 +240,9 @@
   },
   "footer": {
     "rights": "© {{year}} Tulaziva. All rights reserved.",
-    "madeWith": "Made with care for your community"
+    "madeWith": "Made with care for your community",
+    "terms": "Terms of use",
+    "privacy": "Privacy notice"
   },
   "notFound": {
     "title": "Page not found",
@@ -344,5 +350,9 @@
     "stop": "Stop featuring",
     "done": "Your ad is now featured",
     "removed": "The ad is no longer featured"
+  },
+  "legal": {
+    "seeTerms": "Read the Terms of use",
+    "seePrivacy": "Read the Privacy notice"
   }
 }

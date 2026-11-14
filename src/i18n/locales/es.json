@@ -144,7 +144,11 @@
     "nameRequired": "Escribe tu nombre",
     "sessionExpired": "Tu sesión expiró. Inicia sesión de nuevo.",
     "welcome": "¡Hola, {{name}}!",
-    "forgotLink": "¿Olvidaste tu contraseña?"
+    "forgotLink": "¿Olvidaste tu contraseña?",
+    "acceptTerms": "Acepto los <1>Términos de uso</1> y el <2>Aviso de privacidad</2>",
+    "acceptTermsHint": "Debes aceptarlos para crear tu cuenta.",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña"
   },
   "chat": {
     "title": "Mensajes",
@@ -236,7 +240,9 @@
   },
   "footer": {
     "rights": "© {{year}} Tulaziva. Todos los derechos reservados.",
-    "madeWith": "Hecho con cariño para tu comunidad"
+    "madeWith": "Hecho con cariño para tu comunidad",
+    "terms": "Términos de uso",
+    "privacy": "Aviso de privacidad"
   },
   "notFound": {
     "title": "Página no encontrada",
@@ -344,5 +350,9 @@
     "stop": "Dejar de destacar",
     "done": "Tu aviso ahora está destacado",
     "removed": "El aviso ya no está destacado"
+  },
+  "legal": {
+    "seeTerms": "Leer los Términos de uso",
+    "seePrivacy": "Leer el Aviso de privacidad"
   }
 }

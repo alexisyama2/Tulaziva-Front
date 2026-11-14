@@ -31,6 +31,7 @@ import { useNotify } from '@/context/NotificationContext';
 import { useBlockedUsers, useSetBlocked } from '@/hooks/useBlocks';
 import { formatDate } from '@/utils/format';
 import type { User } from '@/types/api';
+import PasswordField from '@/components/common/PasswordField';
 
 function ErrorList({ error }: { error: unknown }) {
   const { t } = useTranslation();
@@ -87,9 +88,8 @@ export function EmailSection({ user }: { user: User }) {
           error={touched && !newEmail.trim()}
           helperText={touched && !newEmail.trim() ? t('auth.emailRequired') : ''}
         />
-        <TextField
+        <PasswordField
           label={t('profile.currentPassword')}
-          type="password"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -198,10 +198,9 @@ export function DeleteAccountSection() {
         <DialogContent>
           <DialogContentText sx={{ mb: 2 }}>{t('deleteAccount.confirmText')}</DialogContentText>
           {remove.error && <Box sx={{ mb: 2 }}><ErrorList error={remove.error} /></Box>}
-          <TextField
+          <PasswordField
             fullWidth
             autoFocus
-            type="password"
             autoComplete="current-password"
             label={t('deleteAccount.password')}
             value={password}

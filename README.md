@@ -55,8 +55,11 @@ src/
 - Live chat: SignalR (`/hubs/chat`, token in the query string). `RealtimeContext` only reacts to "something changed" and refreshes the
   queries; if the channel cannot open, the chat falls back to polling every 5 s (and only once a minute while it is live).
   The Vite proxy has `ws: true` for `/hubs`; a production proxy must allow WebSocket upgrades there too.
-- Emails (verify address, forgot password): in development the API writes them, with their links, to its log. Set `Email:Smtp:Host`
-  (and `Email:FrontendBaseUrl`) in the API to send them for real. Links open `/verify-email?token=…` and `/reset-password?token=…`.
+- Emails (verify address, forgot password, change of email): the API queues them and a background service sends them by SMTP with
+  retries (the sign-up never waits for the mail server). Until the account of the mailbox is set (`Email:Smtp:User` and
+  `Email:Smtp:Password`, kept in user secrets or environment variables, never in a file) they are written, with their links, to the API
+  log. The links open `/verify-email?token=…`, `/reset-password?token=…` and `/confirm-email-change?token=…`; `Email:FrontendBaseUrl`
+  is the address they use.
 - The endpoints that send emails are rate limited per IP (429 → `errors.tooManyRequests`).
 - Favorites use an optimistic update of the id list (`useToggleFavorite`); the hearts are painted from one request (`/api/favorites/ids`).
 - Sessions renew themselves: the API hands out a short access token and a refresh token (30 days, used once, replaced each time).
